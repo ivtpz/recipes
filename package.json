@@ -3,12 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.2"
+    "@material-ui/core": "^3.7.1",
+    "@material-ui/icons": "^3.0.1",
+    "apollo-server": "^2.3.1",
+    "apollo-server-express": "^2.3.1",
+    "config": "^3.0.1",
+    "dataloader": "^1.4.0",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.1",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "react-measure": "^2.2.2",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.2",
+    "styled-components": "^4.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
+    "serve": "source ./config/env && nodemon server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -21,5 +36,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
 }

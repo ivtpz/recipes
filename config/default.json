@@ -1,0 +1,6 @@
+{
+  "db": {
+    "host": "ds135810.mlab.com:35810",
+    "name": "recipes"
+  }
+}

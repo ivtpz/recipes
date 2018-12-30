@@ -1,0 +1,11 @@
+{
+  "db": {
+    "host": "DB_HOST",
+    "name": "DB_NAME",
+    "user": "DB_USER",
+    "pass": "DB_PASS"
+  },
+  "apolloEngine": {
+    "apiKey": "ENGINE_API_KEY"
+  }
+}
