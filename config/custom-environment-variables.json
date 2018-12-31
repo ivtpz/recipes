@@ -7,5 +7,10 @@
   },
   "apolloEngine": {
     "apiKey": "ENGINE_API_KEY"
+  },
+  "aws": {
+    "imageBucketName": "AWS_S3_IMAGE_BUCKET_NAME",
+    "region": "AWS_REGION",
+    "identityPoolId": "AWS_IDENTITY_POOL_ID"
   }
 }

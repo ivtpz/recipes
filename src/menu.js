@@ -46,12 +46,6 @@ class Menu extends Component {
                 </ListItem>
               </InvisibleLink>
             ))}
-            {/* <InvisibleLink to="/create">
-              <ListItem button key="newRecipe">
-                  <ListItemIcon><EditIcon /></ListItemIcon>
-                  <ListItemText primary="New Recipe" />
-              </ListItem>
-            </InvisibleLink> */}
           </List>
           <Divider />
           <List>

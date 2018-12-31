@@ -48,6 +48,7 @@ type Recipe {
 
 type Query {
   recipe(id: ID!): Recipe
+  recipes: [Recipe]
 }
 `;
 

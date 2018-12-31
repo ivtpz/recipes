@@ -1,24 +1,17 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
+const bodyParser = require('body-parser');
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const config = require('config');
 const createLoaders = require('./resolvers/loaders')
+const routes = require('./routes');
 
 
 const app = express();
 const port = 5000;
 
-app.get('/', (req, res) => res.send('Hello World!'))
-// app.get('/recipe/:id', async (req, res) => {
-//   const recipeId = req.params.id;
-//   const foundRecipe = await Recipe.findById(recipeId)
-//     .populate('ingredients.unit')
-//     .populate('summary.prepTime.unit')
-//     .populate('summary.cookTime.unit')
-//     .populate('summary.totalTime.unit')
-//   res.json(foundRecipe).send()
-// });
+app.use(bodyParser.json())
 
 const server = new ApolloServer({
   typeDefs,
@@ -32,5 +25,7 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app });
+
+routes(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

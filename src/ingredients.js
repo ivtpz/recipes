@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Measure from 'react-measure';
-import underline from './images/underline1.png';
+import pluralize from 'pluralize';
 import UnderlinedTitle from './underlinedTitle';
 
 const Wrapper = styled.div`
@@ -22,9 +21,9 @@ const Ingredients = ({ ingredients }) => {
           Ingredients
         </UnderlinedTitle>
         <WrappingList>
-          {ingredients.map(({ quantity, name, unit }) => (
+          {ingredients.map(({ quantity, item, unit }) => (
             <li>
-              {quantity} {unit} {name}
+              {pluralize(unit.name, quantity, true)} {item}
             </li>
           ))}
         </WrappingList>
