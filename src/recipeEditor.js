@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components';
+import ImageCropDialog from './imageCropDialog';
 
 const getColor = (props) => {
   if (props.isDragReject) {
@@ -23,15 +24,34 @@ const Container = styled.div`
   background-color: ${props => props.isDragReject || props.isDragActive ? '#eee' : ''};
 `;
 
+
 class RecipeEditor extends React.Component {
-   onDrop = (acceptedFiles, rejectedFiles) => {
+  state = {
+    uploadedImage: null
+  }
+  onDrop = (acceptedFiles, rejectedFiles) => {
      // Do something with files
      console.log(acceptedFiles)
-   }
+     this.setState({ uploadedImage: acceptedFiles[0] })
+  }
 
-   render() {
+  clearUploadedImage = () => {
+    this.setState({ uploadedImage: null })
+  }
+
+  
+
+  render() {
     return (
-      <Dropzone onDrop={this.onDrop} accept="image/*">
+      <>
+      {this.state.uploadedImage &&
+        <ImageCropDialog 
+          onClose={this.clearUploadedImage}
+          image={this.state.uploadedImage}
+          id={this.props.match.params.id}
+        />
+      }
+      <Dropzone onDrop={this.onDrop} accept="image/*" multiple={false}>
         {({getRootProps, getInputProps, isDragActive, isDragReject}) => {
           return (
             <Container
@@ -44,12 +64,13 @@ class RecipeEditor extends React.Component {
               {
                 isDragActive ?
                   <p>{isDragReject ? 'Only images are accepted' : 'Drop files here...'}</p> :
-                  <p>Drop an image here, or click to select files to upload.</p>
+                  <p>Drop a main image here, or click to select a file to upload.</p>
               }
             </Container>
           )
         }}
       </Dropzone>
+      </>
     );
   }
 }

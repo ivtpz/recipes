@@ -33,7 +33,8 @@ const RecipeSchema = new mongoose.Schema({
     cookTime: [{ quantity: Number, unit: { type: mongoose.Schema.ObjectId, ref: 'TimeUnit' } }],
     totalTime: [{ quantity: Number, unit: { type: mongoose.Schema.ObjectId, ref: 'TimeUnit' } }],
     difficulty: Number
-  }
+  },
+  published: Boolean
 });
 
 const Unit = mongoose.model('Unit', UnitSchema);

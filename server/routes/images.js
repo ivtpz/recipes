@@ -23,7 +23,16 @@ var s3 = new AWS.S3({
 
 module.exports = (app) => {
   app.post('/image', (req, res) => {
-    const { recipeId } = req.body;
+    console.log(req)
+    if(req.busboy) {
+      req.busboy.on("file", function(fieldName, fileStream, fileName, encoding, mimeType) {
+          //Handle file stream here
+          console.log(fileName)
+      });
+      return req.pipe(req.busboy);
+    }
+    const { recipeId, image, crop } = req.body;
+    console.log(image, crop, recipeId)
     // Ensure parent album exists for recipe, then upload the photo
     s3.headObject({ Key: recipeId }, function(err, data) {
       if (!err) {

@@ -13,11 +13,19 @@ const fetchAllRecipes = async () => {
   return db.Recipe.find({})
 }
 
+const createRecipe = async (user) => {
+  console.log(user);
+  return {}
+}
+
 module.exports = {
   resolvers: {
     Query: {
       recipe: (_, { id }, { loaders }) => loaders.Recipe.load(id),
       recipes: fetchAllRecipes
+    },
+    Mutation: {
+      createRecipe: (_, __, { user }) => createRecipe(user)
     }
   },
   fetchRecipes

@@ -44,11 +44,21 @@ type Recipe {
   ingredients: [Ingredient]
   directions: [String]
   summary: RecipeSummary
+  published: Boolean
 }
 
 type Query {
   recipe(id: ID!): Recipe
   recipes: [Recipe]
+}
+
+
+type CreateRecipePayload {
+  recipe: Recipe!
+}
+
+type Mutation {
+  createRecipe: CreateRecipePayload
 }
 `;
 
