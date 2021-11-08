@@ -12,7 +12,7 @@
     "apollo-link-context": "^1.0.18",
     "apollo-link-error": "1.1.11",
     "apollo-link-http": "1.5.15",
-    "apollo-server": "2.3.1",
+    "apollo-server": "2.25.3",
     "apollo-server-express": "2.3.3",
     "auth0-js": "9.8.2",
     "auth0-lock": "11.12.1",
